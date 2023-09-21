@@ -1,16 +1,9 @@
 import re
-
-text = """Hi there,
-        I hope this email finds you well. I wanted to share my contact information with you:
-        My email addresses are:
-        - john.doe@example.com
-        - alice.smith12345@gmail.com
-        - support@mywebsite.org
-        - user(at)example(dot)com
-        Please feel free to reach out to me anytime.
-        Best regards,
-        [Your Name]"""
+import sys
+input("Enter the text\n:")
+text = sys.stdin.read()
 email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-email_addresses = re.findall(email_pattern, text)
+text_stripped = text.strip()
+email_addresses = re.findall(email_pattern, text_stripped, re.MULTILINE)
 for email in email_addresses:
     print(email)
