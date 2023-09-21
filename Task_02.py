@@ -12,8 +12,8 @@ class UsernameGenerator:
             if username not in self.used_usernames:
                 self.used_usernames.add(username)
                 yield username
+if __name__ == "__main__":
+    generator = UsernameGenerator()
 
-generator = UsernameGenerator()
-
-for i in range(12):
-    unique_username = next(generator.generate_username())
+    for i in range(12):
+        unique_username = next(generator.generate_username())
